@@ -32,7 +32,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 Route::middleware(['auth'])->group(function () {
 
     // Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard');
 
     // Resource CRUD Data Buku (dengan fitur Upload Cover)
     Route::resource('buku', BukuController::class);
@@ -42,6 +43,10 @@ Route::middleware(['auth'])->group(function () {
 
     // Resource Peminjaman & Transaksi Pengembalian
     Route::resource('peminjaman', PeminjamanController::class);
-    Route::put('/peminjaman/{peminjaman}/kembali', [PeminjamanController::class, 'kembali'])->name('peminjaman.kembali');
+    Route::put('/peminjaman/{peminjaman}/kembali', [PeminjamanController::class, 'kembali'])
+    ->name('peminjaman.kembali');
+
+    Route::post('/logout', [AuthController::class, 'logout'])
+    ->name('logout');
 });
 

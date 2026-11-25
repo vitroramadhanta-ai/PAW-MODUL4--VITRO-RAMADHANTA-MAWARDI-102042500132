@@ -18,6 +18,7 @@ class Buku extends Model
         'tahun_terbit',
         'stok',
         // TODO 2: Tambahkan kolom 'cover' pada properti $fillable
+        'cover'
     ];
 
     public function peminjaman()
